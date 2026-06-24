@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200">
+  <rect width="100%" height="100%" rx="6" fill="#1f242c"/>
+
+  <text x="20" y="25" fill="#e6edf3">
+  📺 TVer CUI Timeline [ 曜日: Sat | 局: [] ]
+  </text>
+  <text x="20" y="45" fill="#e6edf3">
+  ------------------------------------------------------------------------
+  </text>
+  <text x="20" y="65" fill="#e6edf3">
+  ...
+  </text>
+  <text x="20" y="85" fill="#e6edf3">
+  [ 12] | TX    | 惡の華                                   | #0 #11       | 6月26日(金)0:29 終了予定
+  </text>
+  <text x="20" y="105" fill="#e6edf3">
+  ...
+  </text>
+  <text x="20" y="125" fill="#e6edf3">
+  [ 52] | CX    | 今夜もシリアルキラーと待ち合わせ         | <tspan fill="#ff00cc">#1</tspan> | 配信終了まで1週間以上
+  </text>
+  <text x="20" y="145" fill="#e6edf3">
+  [ 53] | NTV   | ファーストクライ 母子救命救急班          | <tspan fill="#ff00cc">#7</tspan> | 配信終了まで1週間以上
+  </text>
+  <text x="20" y="165" fill="#e6edf3">
+  [ 54] | TX    | リーガルビート -逆転の法廷-              | <tspan fill="#ff00cc">#7</tspan> | 配信終了まで1週間以上
+  </text>
+  <text x="20" y="185" fill="#e6edf3">
+  ...
+  </text>
+</svg>

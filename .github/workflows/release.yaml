@@ -1,0 +1,76 @@
+name: Release Linux Binary
+
+on:
+  push:
+    tags:
+      - 'v*' # v1.0.0 などのタグを打った時だけ動くなり
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # ここから追加
+    permissions:
+      contents: write  # これが「Releaseを作ってファイルを置く」ための許可証なり！
+      repository-projects: write # これが About 編集に必要になる場合があるなり！
+    # ここまで追加
+    steps:
+      - name: Checkout Code
+        run: |
+          git init
+          git branch -M main
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git fetch --depth=1 "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" ${{ github.ref }}
+          git checkout FETCH_HEAD
+
+      - name: Setup Rust (Node Free)
+        run: |
+          rustup update stable
+          rustup default stable
+
+      - name: Build
+        run: cargo build --release --locked
+
+      - name: Create Distribution Package
+        run: |
+          TAG_NAME=${{ github.ref_name }}
+          mkdir dist
+          cp target/release/tveru dist/
+          cp -r docs/ dist/
+          cp README.md dist/
+          cp README-en.md dist/
+          cp CHANGELOG.md dist/
+          cp LICENSE dist/
+          
+          tar -cvzf tveru_${TAG_NAME}_linux.tar.gz -C dist .
+
+      - name: Extract latest changelog
+        id: extract_changelog
+        run: |
+          # 1つ目の '##' から 2つ目の '##' の直前までを抜き出すなり
+          # ※ 最後の 'EOF' は GitHub Actions の「複数行出力」のお作法なり
+          {
+            echo 'body<<EOF'
+            sed -n '/^## \[[0-9].*\]/,/^## \[[0-9].*\]/p' ./dist/CHANGELOG.md | sed '$d'
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      # - name: Update Repository Metadata
+      #  env:
+      #    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #  run: |
+      #    # Cargo.tomlからversionやdescriptionを抜いて、Aboutに反映させるなり！
+      #    DESC=$(grep '^description' Cargo.toml | sed 's/description = "//;s/"//')
+      #    gh repo edit --description "$DESC" --add-topic "rust"
+
+      - name: Upload to Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME=${{ github.ref_name }}
+          
+          # 既存のリリースがあれば削除してから作り直す（リトライ対策）
+          gh release delete "$TAG_NAME" --yes || true
+          
+          gh release create "$TAG_NAME" \
+            tveru_${TAG_NAME}_linux.tar.gz \
+            --title "Tveru $TAG_NAME" \
+            --notes "${{ steps.extract_changelog.outputs.body }}"
