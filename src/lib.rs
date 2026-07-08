@@ -4,7 +4,7 @@ use clap::Parser;
 use thirtyfour::prelude::*;
 use serde::{Serialize, Deserialize};
 use chrono::NaiveDate;
-use std::process::{Child, Command};
+use std::process::{Child, Command, Stdio};
 
 // -------------------------------------------------------------------------
 #[derive(Parser, Debug)]
@@ -60,6 +60,8 @@ impl BrowserConfig {
         // chromedriver を起動
         let child = Command::new("chromedriver")
             .arg("--port=9515")
+            .stdout(Stdio::null())
+            .stderr(Stdio::null())
             .spawn()
             //.map_err(|e| WebDriverError::CustomError(e.to_string()))?;
             .map_err(WebDriverError::IoError)?;

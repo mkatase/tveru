@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-09
+### Added
+- chromedriver起動時の表示（標準出力/標準エラー）を非表示に変更。
+
 ## [0.1.0] - 2026-06-25
 ### Added
 - 新規リリース。
