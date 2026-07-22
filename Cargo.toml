@@ -11,11 +11,11 @@ readme      = "README.md"
 
 [dependencies]
 chrono     = { version = "0.4.45", features = ["serde"] }
-clap       = { version = "4.6.2", features = ["derive"] }
+clap       = { version = "4.6.4", features = ["derive"] }
 colored    = "3.1.1"
 indicatif  = "0.18.6"
 regex      = "1.13.1"
 serde      = { version = "1.0.229" , features = ["derive"] }
 serde_json = "1.0.151"
-thirtyfour = "0.37.2"
-tokio      = { version = "1.53.0", features = ["full"] }
+thirtyfour = "0.37.3"
+tokio      = { version = "1.53.1", features = ["full"] }
