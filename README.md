@@ -9,7 +9,7 @@ TVerの番組一覧（ドラマ）をコンソールで閲覧するためのCLI�
 
 ## 環境
 - cargo 1.98.1 on Fedora 44 (7.2.5-200)
-- chromedriver 152.0.7977.82
+- chromedriver 153.0.8010.36
 - mpv 0.41.0
 - yt-dlp 2026.08.19
 
