@@ -1,4 +1,5 @@
 @note
+- Edit Date: 2026-10-01 Update kernel version
 - Edit Date: 2026-09-28 Update tool version
 - Edit Date: 2026-09-23 Update kernel version
 - Edit Date: 2026-09-18 Update tool version
@@ -57,7 +58,7 @@ TVerの番組一覧（ドラマ）をコンソールで閲覧するためのCLI�
 ## 環境
 @end
 @common
-- cargo 1.98.1 on Fedora 44 (7.2.7-200)
+- cargo 1.98.1 on Fedora 44 (7.2.8-200)
 - chromedriver 154.0.8037.57
 - mpv 0.41.0
 - yt-dlp 2026.08.19
