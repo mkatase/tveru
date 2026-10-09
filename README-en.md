@@ -8,8 +8,8 @@
 A lightweight, keyboard-driven TVer drama aggregator and streaming CLI utility.
 
 ## Environment
-- cargo 1.99.0 on Fedora 44 (7.2.8-200)
-- chromedriver 154.0.8037.92
+- cargo 1.99.0 on Fedora 44 (7.2.9-200)
+- chromedriver 154.0.8037.97
 - mpv 0.41.0
 - yt-dlp 2026.08.19
 
