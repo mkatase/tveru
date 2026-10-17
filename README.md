@@ -8,8 +8,8 @@
 TVerの番組一覧（ドラマ）をコンソールで閲覧するためのCLIユーティリティプログラムです。
 
 ## 環境
-- cargo 1.99.1 on Fedora 44 (7.2.10-200)
-- chromedriver 155.0.8059.39
+- cargo 1.99.1 on Fedora 44 (7.2.11-200)
+- chromedriver 155.0.8059.79
 - mpv 0.41.0
 - yt-dlp 2026.08.19
 
