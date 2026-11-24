@@ -1,7 +1,7 @@
 // tveru/src/main.rs
 
 use clap::Parser;
-use chrono::Datelike;
+use jiff::ZonedDateTime;
 use tokio;
 
 use tveru::{Args, BrowserConfig, ProgramGroup};
@@ -48,7 +48,7 @@ async fn main() -> Result<()> {
     }
     // `--day` が空なら、今日の曜日を自動解決
     let target_day = args.day.clone().unwrap_or_else(|| {
-        format!("{:?}", chrono::Local::now().weekday())
+        format!("{:?}", ZonedDateTime::now().weekday())
     });
 
     // =========================================================================

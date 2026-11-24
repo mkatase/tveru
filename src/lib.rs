@@ -3,7 +3,7 @@
 use clap::Parser;
 use thirtyfour::prelude::*;
 use serde::{Serialize, Deserialize};
-use chrono::NaiveDate;
+use jiff::civil::Date;
 use std::process::{Child, Command, Stdio};
 
 // -------------------------------------------------------------------------
@@ -108,7 +108,7 @@ pub struct Episode {
     pub raw_subtitle: String,      // 元の「#3 始まりの事件」といった生の文字列
     pub url: String,               // 個別視聴URL
     pub image: String,
-    pub broadcast_date: NaiveDate, // 「西暦のみなら1月1日」ハックを適用した日付
+    pub broadcast_date: Date, // 「西暦のみなら1月1日」ハックを適用した日付
     pub end_label: String,         // 「あと2日」「2週以上」などの配信期限ラベル
 }
 

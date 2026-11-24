@@ -1,7 +1,7 @@
 // src/reconfig.rs
 
 use std::collections::{HashMap, HashSet};
-use chrono::Datelike;
+use jiff::ZonedDateTime;
 
 use crate::{Element, ProgramGroup};
 use crate::Episode;
@@ -16,7 +16,7 @@ pub fn aggregate_programs(raw_list: Vec<Element>) -> Vec<ProgramGroup> {
     //  OTHERに判定された生局名をストック
     let mut unknown_stations = HashSet::new();
     //  実行時の現在の西暦を動的に取得
-    let current_year = chrono::Local::now().year();
+    let current_year = ZonedDateTime::now().date().year();
 
     for raw in raw_list {
         // エピソード番号と最終回フラグをパース

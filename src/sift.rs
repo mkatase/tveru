@@ -1,7 +1,5 @@
 // tveru/src/sift.rs
 
-use chrono::Datelike;
-
 use crate::{Args, ProgramGroup};
 
 /// 引数に基づいてデータを絞る
